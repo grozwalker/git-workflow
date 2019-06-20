@@ -12,7 +12,9 @@
 ```git
 > git checkout develop                  #переходим на ветку, в которую хотим произвести слияние
 > git status                            #убеждаемся, что нет никаких изменений
-> git pull origin develop --rebase      #забираем последние изменения
+> git pull --no-edit origin \
+  $(git rev-parse --abbrev-ref HEAD) \
+  --rebase --ff-only                    #забираем последние изменения
 > git merge branch-name --no-ff         #--no-ff оставит память о ветке branch-name, чтобы потом легче смотреть по истории
 ```
 
